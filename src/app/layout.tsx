@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AuthGate from "@/components/AuthGate";
 
 export const metadata: Metadata = {
   title: {
@@ -38,11 +39,13 @@ export default function RootLayout({
         />
       </head>
       <body className="relative flex min-h-screen flex-col pt-[57px]">
-        <Header />
-        <div className="mx-auto flex min-h-0 w-full max-w-6xl flex-1 border-x border-border">
-          <main className="min-w-0 flex-1">{children}</main>
-        </div>
-        <Footer />
+        <AuthGate>
+          <Header />
+          <div className="mx-auto flex min-h-0 w-full max-w-6xl flex-1 border-x border-border">
+            <main className="min-w-0 flex-1">{children}</main>
+          </div>
+          <Footer />
+        </AuthGate>
       </body>
     </html>
   );
