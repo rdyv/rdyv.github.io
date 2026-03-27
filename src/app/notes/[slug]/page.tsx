@@ -100,7 +100,7 @@ export default async function BlogPost({
 
           {/* Table of contents */}
           {post.headings.length > 0 && (
-            <nav className="mb-10 rounded-radius-md border border-border bg-surface-raised p-5">
+            <nav className="mb-10 rounded-lg border border-border bg-surface-raised p-5">
               <p className="mb-3 text-xs font-medium uppercase tracking-wider text-ink-faint">
                 On this page
               </p>
@@ -148,9 +148,9 @@ export default async function BlogPost({
                   <Link
                     key={r.slug}
                     href={`/notes/${r.slug}`}
-                    className="group rounded-radius-md border border-border bg-surface-raised p-5 transition-all duration-200 hover:border-accent-border hover:shadow-md"
+                    className="rounded-lg border border-border bg-surface-raised p-5"
                   >
-                    <p className="font-serif text-base font-[450] leading-snug text-ink transition-colors duration-150 group-hover:text-accent">
+                    <p className="font-serif text-base font-[450] leading-snug text-ink">
                       {r.title}
                     </p>
                     <p className="mt-2 text-sm leading-relaxed text-ink-muted">

@@ -42,7 +42,7 @@ export default function ProjectsPage() {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between gap-4 border-b border-border px-1 py-4 transition-colors duration-150 hover:bg-surface-hover"
+              className="group flex items-center justify-between gap-4 rounded-md border-b border-border px-3 py-4 transition-colors duration-150 hover:bg-surface-hover"
             >
               <div className="min-w-0">
                 <span className="text-[0.9375rem] font-medium text-ink transition-colors duration-150 group-hover:text-accent">

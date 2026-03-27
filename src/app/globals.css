@@ -95,6 +95,14 @@
     background: hsl(210, 70%, 35%);
     color: white;
   }
+
+  *:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--color-surface),
+      0 0 0 4px var(--color-accent);
+    border-radius: var(--radius-md);
+  }
 }
 
 /* ───────────────────────────────────────────────

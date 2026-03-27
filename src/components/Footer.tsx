@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="mt-auto border-t border-border">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-1 px-6 py-4 sm:flex-row sm:justify-between sm:gap-0 sm:px-8">
+      <div className="mx-auto flex max-w-6xl border-x border-border flex-col items-center gap-1 px-6 py-4 sm:flex-row sm:justify-between sm:gap-0 sm:px-8">
         <span className="text-sm text-ink-muted">
           &copy; {new Date().getFullYear()} Rd
         </span>

@@ -66,7 +66,7 @@ export default function FeaturedCard({
               {formatDate(post.date)}
             </time>
             {isNewest && (
-              <span className="rounded-radius-xs border border-border px-2 py-0.5 text-[0.625rem] font-medium uppercase tracking-wide text-ink">
+              <span className="rounded border border-border px-2 py-0.5 text-[0.625rem] font-medium uppercase tracking-wide text-ink">
                 Newest
               </span>
             )}
