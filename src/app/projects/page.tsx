@@ -1,4 +1,4 @@
-import Sidebar from "@/components/Sidebar";
+import Sidebar, { MobileNav } from "@/components/Sidebar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = { title: "Projects" };
@@ -31,6 +31,7 @@ const projects = [
 export default function ProjectsPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8">
+      <MobileNav active="projects" />
       <div className="flex gap-10 pb-16">
         <Sidebar active="projects" />
         <div className="hidden w-px bg-border lg:block" />

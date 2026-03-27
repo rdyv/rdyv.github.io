@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getAllSlugs, getPostBySlug, getRelatedPosts } from "@/lib/blog";
 import { notFound } from "next/navigation";
-import Sidebar from "@/components/Sidebar";
+import Sidebar, { MobileNav } from "@/components/Sidebar";
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -59,6 +59,7 @@ export default async function BlogPost({
 
   return (
     <div className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8">
+      <MobileNav active={post.category} />
       <div className="flex gap-10 pb-16">
         <Sidebar active={post.category} />
         <div className="hidden w-px bg-border lg:block" />

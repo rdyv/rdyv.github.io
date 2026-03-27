@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Sidebar from "@/components/Sidebar";
+import Sidebar, { MobileNav } from "@/components/Sidebar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = { title: "About" };
@@ -7,11 +7,12 @@ export const metadata: Metadata = { title: "About" };
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8">
+      <MobileNav active="about" />
       <div className="flex gap-10 pb-16">
         <Sidebar active="about" />
         <div className="hidden w-px bg-border lg:block" />
         <div className="min-w-0 flex-1 pt-1">
-          <div className="flex items-start gap-5">
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
             <Image
               src="/profile.png"
               alt="Rd"

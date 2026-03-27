@@ -11,7 +11,7 @@ export default function Header() {
         <nav className="flex flex-1 items-center justify-between gap-4 border-x border-border px-5">
           <Link
             href="/"
-            className="flex items-center gap-2.5 font-serif text-[1.0625rem] font-medium tracking-tight text-ink transition-colors duration-150 hover:text-accent"
+            className="flex items-center gap-2 font-serif text-sm font-medium tracking-tight text-ink transition-colors duration-150 hover:text-accent sm:gap-2.5 sm:text-[1.0625rem]"
           >
             <Image
               src="/profile.png"
