@@ -20,7 +20,7 @@ export default function PostRow({
 }) {
   return (
     <Link
-      href={`/blog/${post.slug}`}
+      href={`/notes/${post.slug}`}
       className="group flex items-center gap-3 border-b border-border px-1 py-3.5 transition-colors duration-150 hover:bg-surface-hover"
     >
       <span className="flex-1 flex items-center gap-2 text-[0.9375rem] font-medium text-ink transition-colors duration-150 group-hover:text-accent">

@@ -88,23 +88,9 @@ export default async function BlogPost({
 
           {/* Header */}
           <header className="pb-10">
-            <div className="mb-6 flex items-center gap-3">
-              <Image
-                src="/profile.png"
-                alt={post.author || "Rd"}
-                width={40}
-                height={40}
-                className="rounded-full"
-              />
-              <div>
-                <p className="text-sm font-semibold text-ink">
-                  {post.author || "Rd"}
-                </p>
-                <p className="text-[0.8125rem] text-ink-muted">
-                  <time dateTime={post.date}>{formatDate(post.date)}</time>
-                </p>
-              </div>
-            </div>
+            <p className="mb-3 text-[0.8125rem] text-ink-muted">
+              <time dateTime={post.date}>{formatDate(post.date)}</time>
+            </p>
 
             <h1 className="font-serif text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-[2.5rem] sm:leading-[1.2]">
               {post.title}
@@ -160,7 +146,7 @@ export default async function BlogPost({
                 {related.map((r) => (
                   <Link
                     key={r.slug}
-                    href={`/blog/${r.slug}`}
+                    href={`/notes/${r.slug}`}
                     className="group rounded-radius-md border border-border bg-surface-raised p-5 transition-all duration-200 hover:border-accent-border hover:shadow-md"
                   >
                     <p className="font-serif text-base font-[450] leading-snug text-ink transition-colors duration-150 group-hover:text-accent">

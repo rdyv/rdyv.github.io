@@ -29,7 +29,7 @@ export default function FeaturedCard({
 }) {
   return (
     <Link
-      href={`/blog/${post.slug}`}
+      href={`/notes/${post.slug}`}
       className="blog-card group flex flex-col overflow-hidden"
     >
       {/* Icon area */}
