@@ -2,8 +2,10 @@
 title: "Code and Content Are Becoming the Same Thing"
 date: "2026-03-26"
 description: "The line between writing software and writing prose is dissolving. What happens when the two converge?"
-author: "rdyv"
-tags: ["Software", "Writing"]
+author: "Rd"
+icon: "document"
+category: "notes"
+featured: true
 ---
 
 ## The old separation
@@ -20,7 +22,7 @@ When you write a blog post in a Git repo, review it in a PR, and deploy it throu
 
 ## Prose that executes
 
-The interesting shift isn't just that content lives in repos. It's that content is starting to *do things*. Documentation generates API clients. README files configure tools. Comments become type annotations. Prompts become programs.
+The interesting shift isn't just that content lives in repos. It's that content is starting to _do things_. Documentation generates API clients. README files configure tools. Comments become type annotations. Prompts become programs.
 
 A well-written prompt is closer to a function than it is to a paragraph. It takes input, applies logic, and produces output. The syntax is English, but the intent is computational.
 

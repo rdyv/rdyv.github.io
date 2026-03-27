@@ -1,23 +1,32 @@
 import Link from "next/link";
+import Image from "next/image";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 h-14 border-b border-border bg-surface/80 backdrop-blur-md">
-      <div className="mx-auto flex h-full max-w-3xl items-center justify-between px-6">
-        <Link
-          href="/"
-          className="font-serif text-lg font-semibold tracking-tight text-ink"
-        >
-          rdyv
-        </Link>
-        <nav className="flex items-center gap-6">
+    <header className="sticky top-0 z-50 h-[57px] shrink-0 border-b border-border bg-nav-bg backdrop-blur-lg">
+      <div className="flex h-full items-center">
+        <div className="w-4 sm:w-6 md:w-12" />
+
+        <nav className="flex flex-1 items-center justify-between gap-4 border-x border-border px-5">
           <Link
-            href="/blog"
-            className="text-sm text-muted transition-colors hover:text-ink"
+            href="/"
+            className="flex items-center gap-2.5 font-serif text-[1.0625rem] font-medium tracking-tight text-ink transition-colors duration-150 hover:text-accent"
           >
-            Blog
+            <Image
+              src="/profile.png"
+              alt="Rd"
+              width={28}
+              height={28}
+              className="rounded-full"
+            />
+            Notes of Rd
           </Link>
+
+          <ThemeToggle />
         </nav>
+
+        <div className="w-4 sm:w-6 md:w-12" />
       </div>
     </header>
   );

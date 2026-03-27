@@ -1,8 +1,11 @@
 import { getPostsByCategory } from "@/lib/blog";
 import PostRow from "@/components/PostRow";
 import Sidebar from "@/components/Sidebar";
+import type { Metadata } from "next";
 
-export default function Home() {
+export const metadata: Metadata = { title: "Notes" };
+
+export default function NotesPage() {
   const posts = getPostsByCategory("notes");
 
   return (

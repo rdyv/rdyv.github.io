@@ -1,42 +1,148 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-serif: "IBM Plex Serif", Georgia, serif;
-  --font-mono: "IBM Plex Mono", "Menlo", monospace;
+/* ───────────────────────────────────────────────
+   Theme tokens — Zed-inspired design system
+   ─────────────────────────────────────────────── */
 
-  --color-surface: #ffffff;
-  --color-surface-hover: #fafafa;
-  --color-ink: #1a1a1a;
-  --color-muted: #666666;
-  --color-accent: #3b82f6;
-  --color-accent-hover: #2563eb;
-  --color-border: #e5e5e5;
-  --color-border-hover: #d4d4d4;
+@theme {
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+
+  --color-surface: hsl(0, 0%, 100%);
+  --color-surface-hover: hsl(0, 0%, 98%);
+  --color-surface-raised: hsl(0, 0%, 97%);
+  --color-ink: hsl(0, 0%, 10%);
+  --color-ink-muted: hsl(0, 0%, 40%);
+  --color-ink-faint: hsl(0, 0%, 55%);
+  --color-border: hsl(0, 0%, 90%);
+  --color-border-hover: hsl(0, 0%, 85%);
+  --color-accent: hsl(228, 100%, 60%);
+  --color-accent-hover: hsl(228, 100%, 55%);
+  --color-accent-subtle: hsl(220, 80%, 97%);
+  --color-accent-border: hsla(220, 80%, 85%, 0.8);
   --color-code-bg: #282c33;
   --color-code-text: #dce0e5;
-  --color-footer-bg: #1e293b;
+  --color-nav-bg: hsla(0, 0%, 100%, 0.82);
+  --color-footer-bg: hsl(219, 92%, 2%);
+  --color-footer-text: hsl(220, 12%, 55%);
+  --color-footer-heading: hsl(220, 15%, 82%);
+
+  --shadow-sm: 0 1px 2px hsla(0, 0%, 0%, 0.05);
+  --shadow-md: 0 4px 12px hsla(0, 0%, 0%, 0.08);
+  --shadow-lg: 0 8px 24px hsla(0, 0%, 0%, 0.12);
+
+  --radius-xs: 0.1875rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+/* ───────────────────────────────────────────────
+   Dark mode
+   ─────────────────────────────────────────────── */
+
+.dark {
+  --color-surface: hsl(220, 14%, 11%);
+  --color-surface-hover: hsl(222, 46%, 11%);
+  --color-surface-raised: hsl(220, 14%, 15%);
+  --color-ink: hsl(218, 16%, 88%);
+  --color-ink-muted: hsl(222, 12%, 62%);
+  --color-ink-faint: hsl(230, 8%, 48%);
+  --color-border: hsl(220, 13%, 22%);
+  --color-border-hover: hsl(220, 13%, 28%);
+  --color-accent: hsl(210, 70%, 68%);
+  --color-accent-hover: hsl(210, 70%, 75%);
+  --color-accent-subtle: hsl(222, 46%, 11%);
+  --color-accent-border: hsla(210, 60%, 60%, 0.2);
+  --color-code-bg: hsl(220, 13%, 14%);
+  --color-code-text: hsl(218, 16%, 88%);
+  --color-nav-bg: hsla(220, 14%, 11%, 0.82);
+}
+
+/* ───────────────────────────────────────────────
+   Base
+   ─────────────────────────────────────────────── */
+
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: var(--font-sans);
     color: var(--color-ink);
     background: var(--color-surface);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  ::selection {
+    background: hsl(228, 100%, 60%);
+    color: white;
+  }
+
+  .dark ::selection {
+    background: hsl(210, 70%, 35%);
+    color: white;
   }
 }
 
-/* Prose styling for blog post content */
+/* ───────────────────────────────────────────────
+   Blog card hover — Zed's signature interaction
+   ─────────────────────────────────────────────── */
+
+.blog-card {
+  border: 1px solid transparent;
+  border-radius: var(--radius-xs);
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.blog-card:hover {
+  border-color: var(--color-accent-border);
+  background-color: var(--color-accent-subtle);
+}
+
+/* ───────────────────────────────────────────────
+   Section diamond accents
+   ─────────────────────────────────────────────── */
+
+.diamond {
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+/* ───────────────────────────────────────────────
+   Prose — blog post content
+   ─────────────────────────────────────────────── */
+
 .prose {
   font-size: 1.0625rem;
   line-height: 1.75;
   color: var(--color-ink);
 }
 
+.prose > * + * {
+  margin-top: 1.5em;
+}
+
 .prose p {
-  margin-bottom: 1.5em;
+  margin-bottom: 0;
 }
 
 .prose h2 {
@@ -44,9 +150,9 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-top: 2.5em;
-  margin-bottom: 0.75em;
   line-height: 1.3;
   letter-spacing: -0.01em;
+  color: var(--color-ink);
 }
 
 .prose h3 {
@@ -54,44 +160,65 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin-top: 2em;
-  margin-bottom: 0.5em;
   line-height: 1.4;
+  color: var(--color-ink);
 }
 
 .prose a {
   color: var(--color-accent);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
+  transition: color 150ms ease;
 }
 
 .prose a:hover {
-  border-bottom-color: var(--color-accent);
+  color: var(--color-accent-hover);
+  text-decoration: underline;
 }
 
-.prose ul, .prose ol {
-  margin-bottom: 1.5em;
+.prose strong {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.prose ul,
+.prose ol {
   padding-left: 1.5em;
 }
 
+.prose ul {
+  list-style-type: disc;
+}
+.prose ol {
+  list-style-type: decimal;
+}
+
 .prose li {
-  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+.prose li::marker {
+  color: var(--color-ink-faint);
 }
 
 .prose blockquote {
-  border-left: 3px solid var(--color-border);
-  padding-left: 1.25em;
-  margin-bottom: 1.5em;
-  color: var(--color-muted);
+  border-left: 3px solid var(--color-accent);
+  padding: 1rem 1.25rem;
+  background: var(--color-surface-raised);
+  border-radius: var(--radius-md);
+  color: var(--color-ink-muted);
   font-style: italic;
+}
+
+.prose blockquote p {
+  margin: 0;
 }
 
 .prose pre {
   background: var(--color-code-bg);
   color: var(--color-code-text);
-  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   padding: 1rem 1.25rem;
-  margin-bottom: 1.5em;
   overflow-x: auto;
   font-family: var(--font-mono);
   font-size: 0.875rem;
@@ -104,19 +231,38 @@
 }
 
 .prose :not(pre) > code {
-  background: #f3f4f6;
-  padding: 0.15em 0.4em;
-  border-radius: 0.25rem;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  padding: 0.125em 0.375em;
+  border-radius: var(--radius-sm);
 }
 
 .prose img {
   max-width: 100%;
-  border-radius: 0.5rem;
-  margin-bottom: 1.5em;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
 }
 
 .prose hr {
   border: none;
-  border-top: 1px solid var(--color-border);
-  margin: 2.5em 0;
+  text-align: center;
+  margin: 3em 0;
+}
+
+.prose hr::after {
+  content: "* * *";
+  color: var(--color-ink-faint);
+  letter-spacing: 0.5em;
+  font-size: 0.875rem;
+}
+
+/* ───────────────────────────────────────────────
+   Disable transitions during theme switch
+   ─────────────────────────────────────────────── */
+
+.no-transitions,
+.no-transitions *,
+.no-transitions *::before,
+.no-transitions *::after {
+  transition-duration: 0s !important;
 }
