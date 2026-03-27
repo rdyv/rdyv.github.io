@@ -4,7 +4,7 @@ import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 h-[57px] shrink-0 border-b border-border bg-surface/60 backdrop-blur-xl backdrop-saturate-150">
+    <header className="fixed top-0 z-50 h-[57px] w-full border-b border-border bg-surface/60 backdrop-blur-xl backdrop-saturate-150">
       <nav className="mx-auto flex h-full max-w-6xl items-center justify-between border-x border-border px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
