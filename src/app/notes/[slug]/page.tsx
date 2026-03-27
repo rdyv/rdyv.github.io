@@ -148,9 +148,9 @@ export default async function BlogPost({
                   <Link
                     key={r.slug}
                     href={`/notes/${r.slug}`}
-                    className="rounded-lg border border-border bg-surface-raised p-5"
+                    className="group rounded-lg border border-border bg-surface-raised p-5 transition-colors duration-150 hover:border-accent-border hover:bg-accent-subtle"
                   >
-                    <p className="font-serif text-base font-[450] leading-snug text-ink">
+                    <p className="font-serif text-base font-[450] leading-snug text-ink transition-colors duration-150 group-hover:text-accent-hover">
                       {r.title}
                     </p>
                     <p className="mt-2 text-sm leading-relaxed text-ink-muted">
